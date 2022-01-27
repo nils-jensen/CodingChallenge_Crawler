@@ -22,9 +22,9 @@ namespace Reply.Crawler.Lib
 
         private string _DomainToSearch;
 
-        private Action<string> _ActionToExecute;
+        private Action<string, string> _ActionToExecute;
 
-        public async void Start(string pSiteToCrawl, Action<string> pActionToExecuteOnEachSite)
+        public async void Start(string pSiteToCrawl, Action<string, string> pActionToExecuteOnEachSite)
         {
             _ActionToExecute = pActionToExecuteOnEachSite;
 
@@ -88,7 +88,7 @@ namespace Reply.Crawler.Lib
 
                 var body = await response.Content.ReadAsStringAsync();
 
-                _ActionToExecute?.Invoke(body);
+                _ActionToExecute?.Invoke(target, body);
 
                 _CrawledSites.Add(pSite);
 
