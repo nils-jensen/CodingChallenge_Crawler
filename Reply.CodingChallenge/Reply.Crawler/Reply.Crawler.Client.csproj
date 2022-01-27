@@ -5,4 +5,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Reply.Crawler.Lib\Reply.Crawler.Lib.csproj" />
+  </ItemGroup>
+
 </Project>
